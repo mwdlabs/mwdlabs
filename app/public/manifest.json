@@ -1,0 +1,27 @@
+{
+  "short_name": "MWD Labs",
+  "name": "MWD Labs — Professional Website Creation Montreal",
+  "description": "MWD Labs builds professional, high-performing websites for businesses in Montreal and beyond.",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#dc2626",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "images/logo/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    }
+  ]
+}

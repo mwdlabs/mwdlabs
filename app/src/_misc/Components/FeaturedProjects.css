@@ -1,0 +1,447 @@
+/* ─── Root ───────────────────────────────────────────────────────────── */
+.fp-root {
+  padding: 0;
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────── */
+.fp-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.fp-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.fp-eyebrow {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.02em;
+}
+
+.fp-count {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.fp-subtitle {
+  font-size: clamp(0.88rem, 2vw, 1rem);
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ─── Grid ───────────────────────────────────────────────────────────── */
+.fp-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1rem;
+  height: 460px;
+}
+
+/* ─── Hero card ──────────────────────────────────────────────────────── */
+.fp-hero {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: default;
+  transition: opacity 0.25s ease;
+}
+
+.fp-hero--fading {
+  opacity: 0;
+}
+
+.fp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.fp-hero:hover .fp-hero-bg {
+  transform: scale(1.03);
+}
+
+.fp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+.fp-hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.4rem 1.8rem;
+}
+
+.fp-hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fp-type-badge {
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+}
+
+.fp-number {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+.fp-hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fp-hero-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.fp-hero-desc {
+  font-size: clamp(0.85rem, 1.8vw, 0.98rem);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 480px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tech tags */
+.fp-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.fp-tech-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+}
+
+/* Hero actions */
+.fp-hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.4rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.fp-btn-primary:hover {
+  background: var(--primary-dark, #b91c1c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+}
+
+.fp-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.65rem 1.2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  transition: all 0.2s;
+}
+
+.fp-btn-ghost:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Side cards ─────────────────────────────────────────────────────── */
+.fp-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fp-side-card {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  background: none;
+  text-align: left;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.fp-side-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+.fp-side-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.fp-side-card:hover .fp-side-bg {
+  transform: scale(1.06);
+}
+
+.fp-side-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+  transition: background 0.3s ease;
+}
+
+.fp-side-card:hover .fp-side-overlay {
+  background: linear-gradient(
+    160deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+}
+
+.fp-side-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+}
+
+.fp-side-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.45);
+  font-variant-numeric: tabular-nums;
+}
+
+.fp-side-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fp-side-type {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background: rgba(220, 38, 38, 0.15);
+  padding: 0.18rem 0.5rem;
+  border-radius: 50px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.fp-side-title {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.fp-side-desc {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0);
+  line-height: 1.5;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: color 0.3s ease, max-height 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.fp-side-card:hover .fp-side-desc {
+  color: rgba(255, 255, 255, 0.7);
+  max-height: 3rem;
+}
+
+/* Accent line on hover */
+.fp-side-hover-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+  border-radius: 0 0 14px 14px;
+}
+
+.fp-side-card:hover .fp-side-hover-line {
+  width: 100%;
+}
+
+/* ─── Dots ───────────────────────────────────────────────────────────── */
+.fp-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.fp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: var(--border-color);
+  padding: 0;
+  transition: background 0.25s, transform 0.25s, width 0.25s;
+}
+
+.fp-dot--active {
+  background: var(--primary-color);
+  width: 24px;
+  border-radius: 50px;
+  transform: none;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .fp-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .fp-hero {
+    height: 380px;
+  }
+
+  .fp-side {
+    flex-direction: row;
+    height: 160px;
+  }
+
+  .fp-side-card {
+    flex: 1;
+  }
+
+  .fp-side-desc {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .fp-grid {
+    gap: 0.75rem;
+  }
+
+  .fp-hero {
+    height: 300px;
+  }
+
+  .fp-hero-content {
+    padding: 1rem 1.2rem;
+  }
+
+  .fp-hero-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  .fp-hero-desc {
+    display: none;
+  }
+
+  .fp-side {
+    height: 130px;
+  }
+
+  .fp-side-title {
+    font-size: 0.82rem;
+  }
+
+  .fp-header {
+    margin-bottom: 1rem;
+  }
+
+  .fp-eyebrow {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .fp-hero {
+    height: 260px;
+  }
+
+  .fp-side {
+    height: 110px;
+  }
+}

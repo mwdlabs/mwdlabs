@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2280ca90.css",
+    "main.js": "./static/js/main.9d7fd2e4.js",
+    "static/media/WaganeGoodVibes.JPG": "./static/media/WaganeGoodVibes.4a9d120bfb6120cc5d7f.JPG",
+    "static/media/WaganeOrdi.jpg": "./static/media/WaganeOrdi.099a448e13e18278517b.jpg",
+    "static/media/wagane.jpeg": "./static/media/wagane.c94dd2ba7880dc7db996.jpeg",
+    "index.html": "./index.html",
+    "main.2280ca90.css.map": "./static/css/main.2280ca90.css.map",
+    "main.9d7fd2e4.js.map": "./static/js/main.9d7fd2e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2280ca90.css",
+    "static/js/main.9d7fd2e4.js"
+  ]
+}

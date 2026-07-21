@@ -1,0 +1,262 @@
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.09) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+[data-theme="light"] .App {
+  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.13) 1px, transparent 1px);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Focus visible pour l'accessibilité */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Transitions globales */
+* {
+  transition: color var(--transition-fast), 
+              background-color var(--transition-fast), 
+              border-color var(--transition-fast);
+}
+
+/* Animation d'entrée pour les pages */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.App-logo {
+  height: 85vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: var(--bg-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: var(--text-light);
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 68px; /* Espace pour la navbar fixe */
+}
+
+/* Classe utilitaire pour le contenu principal */
+.main-content {
+  min-height: calc(100vh - 100px); /* Hauteur totale moins la hauteur de la navbar */
+  padding-top: 2rem; /* Espacement supplémentaire pour le contenu */
+}
+
+/* Ajustement pour la page d'accueil qui a déjà son propre espacement */
+.home-page .main-content {
+  padding-top: 0;
+}
+
+/* Ajustement pour les appareils mobiles */
+@media (max-width: 900px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .main-content {
+    min-height: calc(100vh - 60px);
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .main-content {
+    padding-top: 1rem;
+  }
+}
+
+/* Styles de base pour tous les boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.2;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+/* Bouton principal */
+.btn-primary, .btn-primaire {
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primaire:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active, .btn-primaire:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton secondaire (contour) */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-outline {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Tailles de boutons */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* Bouton avec icône */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-icon svg {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* Classes utilitaires globales */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
+.flex-wrap { flex-wrap: wrap; }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+.rounded { border-radius: var(--border-radius-md); }
+.shadow { box-shadow: var(--shadow-md); }
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+  }
+  
+  .btn-primaire {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 6px 10px;
+    font-size: clamp(0.7rem, 3.5vw, 0.8rem);
+  }
+  
+  .btn-primaire {
+    padding: 6px 10px;
+    font-size: clamp(0.7rem, 3.5vw, 0.8rem);
+  }
+}
+
+

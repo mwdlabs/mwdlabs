@@ -1,0 +1,26 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<!-- Main mark centered -->
+<g transform="translate(32,30)">
+
+<!-- Inner diamond -->
+<rect x="-22" y="-22" width="44" height="44" rx="2" transform="rotate(45)" fill="#E24B4A" fill-opacity=".08" stroke="#E24B4A" stroke-width="0.6" opacity=".35"/>
+
+<!-- Neural M pathways -->
+<line x1="-16" y1="18" x2="-16" y2="-18" stroke="#E24B4A" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="-16" y1="-18" x2="0" y2="6" stroke="#E24B4A" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="0" y1="6" x2="16" y2="-18" stroke="#E24B4A" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="16" y1="-18" x2="16" y2="18" stroke="#E24B4A" stroke-width="2.5" stroke-linecap="round"/>
+
+<!-- Primary nodes -->
+<circle cx="-16" cy="-18" r="3.5" fill="#E24B4A"/>
+<circle cx="-16" cy="-18" r="1.5" fill="#FCEBEB"/>
+<circle cx="0" cy="6" r="3.5" fill="#E24B4A"/>
+<circle cx="0" cy="6" r="1.5" fill="#FCEBEB"/>
+<circle cx="16" cy="-18" r="3.5" fill="#E24B4A"/>
+<circle cx="16" cy="-18" r="1.5" fill="#FCEBEB"/>
+<circle cx="-16" cy="18" r="3.5" fill="#A32D2D"/>
+<circle cx="-16" cy="18" r="1.5" fill="#F09595"/>
+<circle cx="16" cy="18" r="3.5" fill="#A32D2D"/>
+<circle cx="16" cy="18" r="1.5" fill="#F09595"/>
+</g>
+</svg>

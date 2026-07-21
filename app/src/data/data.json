@@ -1,0 +1,97 @@
+[
+    {
+        "id": 1,
+        "title": "Boretudes",
+        "image": "/images/projects/new-boretudes.png",
+        "type": "Site Web",
+        "shortDescription": "Plateforme digitale professionnelle pour agence d'immigration développée avec React.",
+        "longDescription": "Solution web complète pour Boretudes, agence spécialisée dans l'accompagnement d'étudiants internationaux. Cette plateforme React intègre une interface moderne et performante, des formulaires de contact sécurisés et une architecture SEO avancée. Le site génère des leads qualifiés et améliore significativement la visibilité digitale de l'entreprise avec un ROI mesurable.",
+        "link": "https://boretudes-pzy9owns9-dioufmouhammad-1502s-projects.vercel.app/",
+        "technologies": ["React", "JavaScript", "HTML", "CSS", "Vercel"],
+        "featured": true
+    },
+    {
+        "id": 2,
+        "title": "The Acts Ministry",
+        "image": "/images/projects/theactministry.png",
+        "type": "Site Web",
+        "shortDescription": "Plateforme communautaire complète avec gestion d'événements et ressources numériques.",
+        "longDescription": "Solution web complète pour The Acts Ministry, optimisant leur présence digitale et l'engagement communautaire. Architecture responsive avec système de gestion d'événements, calendrier interactif et ressources membres. Le site améliore la communication interne, augmente la participation aux événements et renforce l'identité numérique de l'organisation.",
+        "link": "https://theactsministry.com/",
+        "featured": true
+    },
+    {
+        "id": 3,
+        "title": "La Maison Dorée",
+        "image": "/images/projects/maison-dorée.png",
+        "type": "Site Web",
+        "shortDescription": "Site web élégant pour restaurant gastronomique avec menu interactif, présentation de l'établissement et formulaire de réservation.",
+        "longDescription": "Site web raffiné pour La Maison Dorée, restaurant gastronomique alliant tradition et modernité. La plateforme met en valeur l'identité visuelle de l'établissement avec un design élégant, un menu interactif détaillé et une galerie photo immersive. Développée avec React et déployée sur Vercel, la solution offre une expérience utilisateur haut de gamme sur tous les appareils — pensée pour convertir les visiteurs en clients et renforcer la présence digitale du restaurant.",
+        "link": "https://template-restaurant-alpha.vercel.app/",
+        "technologies": [
+            "React",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Vercel"
+        ],
+        "features": [
+            "Design élégant reflétant l'identité haut de gamme du restaurant.",
+            "Menu interactif avec descriptions détaillées des plats.",
+            "Galerie photo immersive de l'établissement et des plats.",
+            "Formulaire de réservation en ligne.",
+            "Interface entièrement responsive et optimisée mobile."
+        ],
+        "featured": true
+    },
+    {
+        "id": 4,
+        "title": "Assistance à l'arrivée",
+        "image": "/images/projects/assistance-arrivee.png",
+        "type": "Site Web",
+        "shortDescription": "Plateforme d'accompagnement pour les nouveaux arrivants au Canada : ressources, démarches et services d'aide à l'installation.",
+        "longDescription": "Site web professionnel conçu pour accompagner les nouveaux arrivants dans leurs premières démarches au Canada. La plateforme centralise les informations essentielles — logement, emploi, démarches administratives et services communautaires — dans une interface claire et accessible. Développée avec React et déployée sur Vercel, la solution offre une navigation intuitive, un design épuré et une expérience mobile optimisée pour faciliter l'intégration des nouveaux résidents.",
+        "link": "https://assistancearriveecanada.com/",
+        "technologies": [
+            "React",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Vercel"
+        ],
+        "features": [
+            "Présentation claire des services d'accompagnement.",
+            "Navigation intuitive et design accessible.",
+            "Interface entièrement responsive et optimisée mobile.",
+            "Formulaire de contact pour demandes d'assistance.",
+            "Mise en avant des ressources clés pour nouveaux arrivants."
+        ],
+        "featured": true
+    },
+    {
+        "id": 5,
+        "title": "Cyclo Action",
+        "image": "/images/projects/cycloaction.png",
+        "type": "Site Web",
+        "shortDescription": "Plateforme communautaire pour un club de vélo à Saint-Jean-sur-Richelieu : événements, inscriptions et gestion des membres.",
+        "longDescription": "Solution web complète pour Cyclo Action, organisme communautaire de vélo à Saint-Jean-sur-Richelieu. La plateforme intègre un calendrier d'activités interactif, un système d'inscription aux sorties et événements sportifs, ainsi qu'un espace de gestion des membres. Développée avec un frontend React et un backend .NET/C# connecté à une base de données MySQL, l'architecture garantit des performances fiables et une administration bénévole simplifiée.",
+        "link": "https://cycloaction.org/",
+        "technologies": [
+            "React",
+            "JavaScript",
+            "C#",
+            ".NET",
+            "MySQL",
+            "HTML",
+            "CSS"
+        ],
+        "features": [
+            "Calendrier interactif des sorties et événements.",
+            "Système d'inscription en ligne pour les membres.",
+            "Gestion de la communauté et des adhésions.",
+            "Interface d'administration simplifiée pour bénévoles.",
+            "Affichage des partenaires et commanditaires."
+        ],
+        "featured": true
+    }
+]
