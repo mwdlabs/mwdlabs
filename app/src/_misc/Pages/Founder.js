@@ -4,7 +4,7 @@ import { useTranslation } from '../../hooks/useTranslation';
 import {
     FaCode, FaMobileAlt, FaGraduationCap, FaRocket,
     FaGithub, FaLinkedin, FaExternalLinkAlt, FaEnvelope,
-    FaTrophy, FaLaptopCode, FaGamepad, FaPalette, FaBriefcase, FaCheckCircle
+    FaTrophy, FaLaptopCode, FaGamepad, FaBriefcase, FaCheckCircle
 } from 'react-icons/fa';
 import { SiReact, SiJavascript, SiNodedotjs, SiAndroid, SiPhp, SiCss3, SiHtml5, SiPython, SiMysql, SiBootstrap, SiTailwindcss } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
