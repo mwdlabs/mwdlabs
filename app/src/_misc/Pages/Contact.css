@@ -438,6 +438,35 @@
   animation: fadeInUp 0.4s ease;
 }
 
+.confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.confirmation-content p {
+  margin: 0;
+}
+
+.checkmark {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.checkmark__circle {
+  stroke: #22c55e;
+  stroke-width: 2;
+}
+
+.checkmark__check {
+  stroke: #22c55e;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
