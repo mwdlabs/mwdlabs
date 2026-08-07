@@ -396,12 +396,7 @@ function Founder() {
                             <div className="fproject-body">
                                 <h3>{p.title}</h3>
                                 <p>{fr ? p.desc_fr : p.desc_en}</p>
-                                <div className="fproject-techs">
-                                    {p.tech.map((t, j) => (
-                                        <span key={j} className="ftech-chip">{t}</span>
-                                    ))}
                                 </div>
-                            </div>
                         </div>
                     ))}
                 </div>

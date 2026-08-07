@@ -16,11 +16,18 @@ export const en = {
     title: "Contact Me",
     subtitle: "Let's talk about your project",
     form: {
-      name: "Your name",
-      email: "Your email",
+      name: "Full name",
+      email: "Email address",
+      phone: "Phone (optional)",
       subject: "Subject",
-      message: "Your message",
-      send: "Send message",
+      projectType: "Project type",
+      projectTypePlaceholder: "Select a type",
+      budget: "Estimated budget",
+      budgetPlaceholder: "Select a budget",
+      timeline: "Preferred timeline",
+      timelinePlaceholder: "Select a timeline",
+      message: "Describe your project...",
+      send: "Submit my request",
       sending: "Sending...",
       success: "Message sent successfully!",
       error: "An error occurred. Please try again.",
@@ -120,18 +127,56 @@ export const en = {
     }
   },
 
+  // Cookie banner
+  cookies: {
+    title: "We use cookies",
+    description: "We use cookies to improve your experience, analyze traffic, and personalize content. By accepting, you consent to our use of cookies.",
+    learnMore: "Learn more",
+    accept: "Accept",
+    decline: "Decline"
+  },
+
   // Home page
   home: {
-    typedText: [
-      "Professional Website Creation",
-      "Digital Advertising Solutions",
-      "SEO & Online Visibility",
-      "Custom Web Design",
-      "E-commerce Development"
-    ],
+    heroHeadline: "We Build Websites That Convert.",
+    heroSub: "Web design, development & digital strategy — crafted in Montréal.",
     expertiseTitle: "We Build Websites That Grow Your Business.",
     developer: "",
     description: "We design and develop high-performing websites that attract customers and drive real results. From custom design and SEO optimization to digital advertising campaigns, we deliver complete web solutions tailored to your business goals.",
+    servicesTitle: "What We Do",
+    servicesSubtitle: "End-to-end digital solutions, from concept to launch.",
+    servicesItems: [
+      {
+        icon: "web",
+        title: "Web Development",
+        desc: "Custom websites, e-commerce stores, and web apps — fast, scalable, and SEO-ready."
+      },
+      {
+        icon: "design",
+        title: "UI/UX Design",
+        desc: "Beautiful, intuitive interfaces that turn visitors into loyal customers."
+      },
+      {
+        icon: "mobile",
+        title: "Mobile Apps",
+        desc: "Cross-platform iOS & Android apps that are smooth and performant."
+      },
+      {
+        icon: "ai",
+        title: "AI & Automation",
+        desc: "Chatbots, smart tools, and workflows that save time and help you scale."
+      },
+      {
+        icon: "seo",
+        title: "SEO & Digital Marketing",
+        desc: "Organic rankings, Google Ads, and content strategy to grow your visibility."
+      },
+      {
+        icon: "maintenance",
+        title: "Maintenance & Support",
+        desc: "Hosting, backups, updates, and priority support — every month."
+      }
+    ],
     discoverBtn: "Explore Our Services",
     getQuoteBtn: "Get a Free Quote",
     viewProjectsBtn: "View Our Portfolio",
@@ -152,11 +197,6 @@ export const en = {
           name: "Cyclo Action",
           role: "Community Cycling Club, Saint-Jean-sur-Richelieu",
           text: "Our new platform made it so easy for members to register for events and stay connected. The team was responsive, professional, and delivered exactly what we needed."
-        },
-        {
-          name: "The Acts Ministry",
-          role: "Community Organization",
-          text: "From design to launch, the process was smooth and stress-free. Our website now reflects who we are and has greatly improved how we communicate with our community."
         }
       ]
     }
@@ -310,129 +350,94 @@ export const en = {
   // Services page
   services: {
     trust: [
-      "Custom websites",
-      "On-time delivery",
-      "Responsive design",
-      "Support included"
+      "100% custom-built websites",
+      "On-time delivery, guaranteed",
+      "Mobile-first responsive design",
+      "Ongoing support included"
     ],
     title: "Professional Services",
-    subtitle: "Custom digital solutions for ambitious businesses",
-    popular: "Popular",
-    ctaButton: "Get Started",
+    subtitle: "Custom digital solutions designed to help your business grow online",
+    popular: "Recommended",
+    ctaButton: "Request a Quote",
     viewDetails: "View Details",
     included: "Included:",
     notIncluded: "Not included:",
-    contactBtn: "Contact Me",
+    contactBtn: "Start a Project",
     partnership: {
-      title: "Let's Work Together",
-      description: "Have a project in mind? Let's discuss how I can help bring your ideas to life with custom digital solutions."
+      title: "Let's Build Something Great",
+      description: "Have a project in mind? Let's talk about your goals and find the right solution for your business — no commitment required."
     },
     solutions: {
       title: "Custom Solutions",
       description: "Services tailored to every stage of your digital transformation"
     },
     packages: {
-      title: "Our Packages",
-      subtitle: "Solutions adapted to every need",
-      priceAdapted: "Fixed price",
-      launchBadge: "Launch discount",
-      essential: {
-        title: "Express Website",
-        description: "A single-page site, simple and effective",
-        price: "$700",
-        originalPrice: "$1,000",
-        features: [
-          "1-page site (landing page)",
-          "Responsive design (mobile + tablet)",
-          "Contact form",
-          "Domain name included 1 year",
-          "Hosting included 1 year",
-          "2 revisions included"
-        ]
-      },
-      premium: {
-        title: "Pro Website",
-        description: "Multi-page site for a complete professional presence",
-        price: "$950",
-        originalPrice: "$1,400",
-        features: [
-          "3 to 5-page site",
-          "Custom responsive design",
-          "Contact form",
-          "Domain name included 1 year",
-          "Hosting included 1 year",
-          "Basic SEO (search engine optimization)",
-          "2 revisions included"
-        ]
-      },
-      enterprise: {
-        title: "Premium Website",
-        description: "Full site with custom design and advanced features",
-        price: "$1,700",
-        originalPrice: "$2,700",
-        features: [
-          "5 to 7-page site",
-          "100% custom design",
-          "Contact form",
-          "Domain name included 1 year",
-          "Hosting included 1 year",
-          "Advanced SEO + Google Analytics setup",
-          "Performance optimization (page speed)",
-          "Advanced features",
-          "3 revisions included"
-        ]
-      },
-      custom: {
-        title: "Complex Project",
-        description: "E-commerce, platform, custom web app — anything beyond standard packages",
-        price: "Custom quote",
-        features: [
-          "E-commerce (online store)",
-          "Platform or member area",
-          "Custom web application",
-          "Third-party API integrations",
-          "Database & backend",
-          "Fully custom design",
-          "Timeline and revisions based on project scope"
-        ]
-      }
+      title: "What We Offer",
+      subtitle: "Every project is built from scratch — no templates, no shortcuts",
     },
+    items: [
+      {
+        title: "Web Development",
+        description: "Custom websites, e-commerce, and web apps — fast, scalable, and SEO-ready."
+      },
+      {
+        title: "UI/UX Design",
+        description: "Beautiful, intuitive interfaces that turn visitors into clients."
+      },
+      {
+        title: "Mobile Apps",
+        description: "Cross-platform iOS & Android apps that are smooth and performant."
+      },
+      {
+        title: "AI & Automation",
+        description: "Chatbots, smart tools, and automations to save time and scale your business."
+      },
+      {
+        title: "SEO & Digital Marketing",
+        description: "Organic search, Google Ads, and content strategy to grow your visibility."
+      },
+      {
+        title: "Maintenance & Support",
+        description: "Hosting, backups, updates, and priority support every month."
+      }
+    ],
     subscription: {
-      title: "Monthly Subscription",
-      subtitle: "A flexible solution for growing businesses",
+      title: "Ongoing Maintenance & Support",
+      subtitle: "Keep your website fast, secure, and up to date — every month",
       description: "A flexible solution for growing businesses",
-      price: "Price adapted to your budget",
       features: [
-        "Monthly maintenance and updates",
+        "Monthly updates and content changes",
         "Priority email and chat support",
-        "Regular backups",
+        "Automated regular backups",
         "Monthly performance reports",
         "1 hour of strategic consultation/month",
-        "Security updates included"
+        "Security patches and monitoring",
+        "Uptime monitoring",
+        "Emergency fixes included"
       ]
     },
     process: {
-      title: "Our Process",
+      title: "How We Work",
       steps: [
         {
-          title: "Consultation",
-          description: "Analysis of your needs and objectives"
+          title: "Discovery",
+          description: "We learn about your business, goals, and target audience"
         },
         {
           title: "Design",
-          description: "Creation of mockups and technical architecture"
+          description: "We create mockups and map out the technical architecture"
         },
         {
           title: "Development",
-          description: "Feature implementation"
+          description: "We build your solution with clean, modern code"
         },
         {
           title: "Testing",
-          description: "Validation and quality assurance"
+          description: "We validate every detail — speed, responsiveness, and quality"
         },
         {
-          title: "Deployment",
-          description: "Launch and training"
+          title: "Launch",
+          description: "We deploy, hand over, and make sure you're fully set up"
         }
       ]
     },
@@ -466,23 +471,27 @@ export const en = {
       items: [
         {
           question: "How long does it take to build a website?",
-          answer: "Most projects are completed in 3 to 15 days depending on complexity. A standard business website takes about 3â7 days. More complex platforms with custom features can take 7â15 days."
+          answer: "Most projects are completed in 3 to 15 business days depending on complexity. A standard business website typically takes 3–7 days. More complex platforms with custom features can take 7–15 days. We'll give you a clear timeline before we start."
         },
         {
           question: "What do I need to provide to get started?",
-          answer: "We'll guide you through everything, but having your logo, brand colors, key content (text and images), and a few websites you like as references will help us move faster."
+          answer: "We'll guide you through the whole process. It helps to have your logo, brand colors, key content (text and images), and a few websites you like as references — but we can work with you even if you're starting from scratch."
         },
         {
           question: "Do you offer maintenance after launch?",
-          answer: "Yes. We offer a monthly maintenance subscription that covers updates, backups, security patches, and performance monitoring so your site stays fast and secure."
+          answer: "Yes. We offer a monthly maintenance plan that covers updates, backups, security patches, and performance monitoring — so your site stays fast, secure, and always up to date."
         },
         {
           question: "Can you redesign my existing website?",
-          answer: "Absolutely. We handle full redesigns and migrations. Whether you want a fresh look or a complete rebuild on a modern stack, we've got you covered."
+          answer: "Absolutely. We handle full redesigns and platform migrations. Whether you want a fresh look or a complete rebuild on a modern tech stack, we've got you covered."
         },
         {
           question: "Will my website be mobile-friendly?",
-          answer: "Every website we build is fully responsive and tested on mobile, tablet, and desktop. Mobile performance is a priority, not an afterthought."
+          answer: "Every site we build is fully responsive and tested across mobile, tablet, and desktop. Mobile performance is a core requirement — not an afterthought."
+        },
+        {
+          question: "Do you work with clients outside of Montreal?",
+          answer: "Yes. We work with clients across Canada and internationally. Everything can be handled remotely — consultations, reviews, and handoffs are all done online."
         }
       ]
     }

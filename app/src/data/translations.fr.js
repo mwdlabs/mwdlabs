@@ -16,11 +16,18 @@ export const fr = {
     title: "Contactez-moi",
     subtitle: "Parlons de votre projet",
     form: {
-      name: "Votre nom",
-      email: "Votre email",
+      name: "Nom complet",
+      email: "Adresse email",
+      phone: "Téléphone (optionnel)",
       subject: "Sujet",
-      message: "Votre message",
-      send: "Envoyer le message",
+      projectType: "Type de projet",
+      projectTypePlaceholder: "Sélectionnez un type",
+      budget: "Budget estimé",
+      budgetPlaceholder: "Sélectionnez un budget",
+      timeline: "Délai souhaité",
+      timelinePlaceholder: "Sélectionnez un délai",
+      message: "Décrivez votre projet...",
+      send: "Soumettre ma demande",
       sending: "Envoi en cours...",
       success: "Message envoyé avec succès !",
       error: "Une erreur est survenue. Veuillez réessayer.",
@@ -120,18 +127,56 @@ export const fr = {
     }
   },
 
+  // Cookie banner
+  cookies: {
+    title: "Nous utilisons des cookies",
+    description: "Nous utilisons des cookies pour améliorer votre expérience, analyser le trafic et personnaliser le contenu. En acceptant, vous consentez à notre utilisation des cookies.",
+    learnMore: "En savoir plus",
+    accept: "Accepter",
+    decline: "Refuser"
+  },
+
   // Home page
   home: {
-    typedText: [
-      "Création de Sites Web Professionnels",
-      "Solutions Publicitaires Digitales",
-      "Référencement SEO & Visibilité",
-      "Design Web Sur Mesure",
-      "Développement E-commerce"
-    ],
+    heroHeadline: "Nous créons des sites web qui convertissent.",
+    heroSub: "Design web, développement & stratégie digitale — conçus à Montréal.",
     expertiseTitle: "Nous créons des sites web qui font croître votre entreprise.",
     developer: "",
     description: "Nous concevons et développons des sites web performants qui attirent des clients et génèrent de vrais résultats. Du design personnalisé à l'optimisation SEO et aux campagnes publicitaires digitales, nous offrons des solutions web complètes adaptées à vos objectifs d'affaires.",
+    servicesTitle: "Ce que nous faisons",
+    servicesSubtitle: "Des solutions digitales complètes, de la conception au lancement.",
+    servicesItems: [
+      {
+        icon: "web",
+        title: "Développement Web",
+        desc: "Sites vitrines, e-commerce et applications web sur mesure, rapides et SEO-friendly."
+      },
+      {
+        icon: "design",
+        title: "Design UI/UX",
+        desc: "Interfaces belles et intuitives qui transforment les visiteurs en clients."
+      },
+      {
+        icon: "mobile",
+        title: "Application Mobile",
+        desc: "Apps iOS & Android multiplateformes, performantes et fluides."
+      },
+      {
+        icon: "ai",
+        title: "IA & Automatisation",
+        desc: "Chatbots, outils intelligents et automatisations pour gagner du temps et scaler."
+      },
+      {
+        icon: "seo",
+        title: "SEO & Marketing Digital",
+        desc: "Référencement organique, Google Ads et stratégie de contenu pour plus de visibilité."
+      },
+      {
+        icon: "maintenance",
+        title: "Maintenance & Support",
+        desc: "Hébergement, sauvegardes, mises à jour et support prioritaire tous les mois."
+      }
+    ],
     discoverBtn: "Explorer nos services",
     getQuoteBtn: "Obtenir un Devis Gratuit",
     viewProjectsBtn: "Voir nos réalisations",
@@ -152,11 +197,6 @@ export const fr = {
           name: "Cyclo Action",
           role: "Club Cycliste Communautaire, Saint-Jean-sur-Richelieu",
           text: "Notre nouvelle plateforme a facilité l'inscription des membres aux événements et a renforcé les liens au sein de notre communauté. L'équipe était réactive, professionnelle et a livré exactement ce dont nous avions besoin."
-        },
-        {
-          name: "The Acts Ministry",
-          role: "Organisation Communautaire",
-          text: "Du design au lancement, le processus a été fluide et sans stress. Notre site reflète maintenant qui nous sommes et a grandement amélioré notre communication avec notre communauté."
         }
       ]
     }
@@ -310,129 +350,94 @@ export const fr = {
   // Services page
   services: {
     trust: [
-      "Sites web sur mesure",
-      "Livraison dans les délais",
-      "Design responsive",
-      "Support inclus"
+      "Sites web 100 % sur mesure",
+      "Livraison dans les délais, garantie",
+      "Design responsive mobile-first",
+      "Support continu inclus"
     ],
     title: "Services Professionnels",
-    subtitle: "Solutions digitales sur mesure pour entreprises ambitieuses",
-    popular: "Populaire",
-    ctaButton: "Commencer",
+    subtitle: "Solutions digitales sur mesure conçues pour faire croître votre entreprise en ligne",
+    popular: "Recommandé",
+    ctaButton: "Demander un Devis",
     viewDetails: "Voir les détails",
     included: "Inclus :",
     notIncluded: "Non inclus :",
-    contactBtn: "Me Contacter",
+    contactBtn: "Démarrer un Projet",
     partnership: {
-      title: "Travaillons Ensemble",
-      description: "Vous avez un projet en tête ? Discutons de la manière dont je peux vous aider à concrétiser vos idées avec des solutions numériques sur mesure."
+      title: "Construisons Quelque Chose d'Impactant",
+      description: "Vous avez un projet en tête ? Parlons de vos objectifs et trouvons la bonne solution pour votre entreprise — sans engagement."
     },
     solutions: {
       title: "Solutions sur Mesure",
       description: "Services adaptés à chaque étape de votre transformation digitale"
     },
     packages: {
-      title: "Nos Forfaits",
-      subtitle: "Solutions adaptées à chaque besoin",
-      priceAdapted: "Prix fixe",
-      launchBadge: "Rabais de lancement",
-      essential: {
-        title: "Vitrine Express",
-        description: "Site d'une page, simple et efficace",
-        price: "700 $",
-        originalPrice: "1 000 $",
-        features: [
-          "Site 1 page (landing)",
-          "Design responsive (mobile + tablette)",
-          "Formulaire de contact",
-          "Nom de domaine 1 an inclus",
-          "Hébergement 1 an inclus",
-          "2 révisions incluses"
-        ]
-      },
-      premium: {
-        title: "Vitrine Pro",
-        description: "Site multi-pages pour une présence professionnelle complète",
-        price: "950 $",
-        originalPrice: "1 400 $",
-        features: [
-          "Site 3 à 5 pages",
-          "Design responsive personnalisé",
-          "Formulaire de contact",
-          "Nom de domaine 1 an inclus",
-          "Hébergement 1 an inclus",
-          "SEO de base (référencement)",
-          "2 révisions incluses"
-        ]
-      },
-      enterprise: {
-        title: "Vitrine Premium",
-        description: "Site complet avec design sur mesure et fonctionnalités avancées",
-        price: "1 700 $",
-        originalPrice: "2 700 $",
-        features: [
-          "Site 5 à 7 pages",
-          "Design 100 % personnalisé",
-          "Formulaire de contact",
-          "Nom de domaine 1 an inclus",
-          "Hébergement 1 an inclus",
-          "SEO avancé + setup Google Analytics",
-          "Optimisation des performances (vitesse)",
-          "Fonctionnalités avancées",
-          "3 révisions incluses"
-        ]
-      },
-      custom: {
-        title: "Projet Complexe",
-        description: "E-commerce, plateforme, app web sur mesure — tout ce qui dépasse les forfaits standards",
-        price: "Sur devis",
-        features: [
-          "E-commerce (boutique en ligne)",
-          "Plateforme ou espace membres",
-          "Application web sur mesure",
-          "Intégrations API tierces",
-          "Base de données & backend",
-          "Design entièrement personnalisé",
-          "Délais et révisions selon le projet"
-        ]
-      }
+      title: "Ce Que Nous Offrons",
+      subtitle: "Chaque projet est conçu de zéro — aucun template, aucun raccourci",
     },
+    items: [
+      {
+        title: "Développement Web",
+        description: "Sites vitrines, e-commerce et applications web sur mesure, rapides et SEO-friendly."
+      },
+      {
+        title: "Design UI/UX",
+        description: "Interfaces belles et intuitives qui transforment les visiteurs en clients."
+      },
+      {
+        title: "Application Mobile",
+        description: "Apps iOS & Android multiplateformes, performantes et fluides."
+      },
+      {
+        title: "IA & Automatisation",
+        description: "Chatbots, outils intelligents et automatisations pour gagner du temps et scaler."
+      },
+      {
+        title: "SEO & Marketing Digital",
+        description: "Référencement organique, Google Ads et stratégie de contenu pour plus de visibilité."
+      },
+      {
+        title: "Maintenance & Support",
+        description: "Hébergement, sauvegardes, mises à jour et support prioritaire chaque mois."
+      }
+    ],
     subscription: {
-      title: "Abonnement Mensuel",
-      subtitle: "Une solution flexible pour les entreprises en croissance",
+      title: "Maintenance & Support Continu",
+      subtitle: "Gardez votre site rapide, sécurisé et à jour — chaque mois",
       description: "Profitez d'un accompagnement continu pour votre présence en ligne",
-      price: "Prix adapté à votre budget",
       features: [
-        "Maintenance et mises à jour mensuelles",
+        "Mises à jour mensuelles et changements de contenu",
         "Support prioritaire par email et chat",
-        "Sauvegardes régulières",
+        "Sauvegardes automatiques régulières",
         "Rapports de performance mensuels",
         "1 heure de consultation stratégique/mois",
-        "Mises à jour de sécurité incluses"
+        "Correctifs de sécurité et surveillance",
+        "Surveillance de la disponibilité (uptime)",
+        "Corrections d'urgence incluses"
       ]
     },
     process: {
-      title: "Notre Processus",
+      title: "Notre Façon de Travailler",
       steps: [
         {
-          title: "Consultation",
-          description: "Analyse de vos besoins et objectifs"
+          title: "Découverte",
+          description: "Nous apprenons à connaître votre entreprise, vos objectifs et votre clientèle cible"
         },
         {
           title: "Conception",
-          description: "Création des maquettes et architecture technique"
+          description: "Nous créons les maquettes et définissons l'architecture technique"
         },
         {
           title: "Développement",
-          description: "Implémentation des fonctionnalités"
+          description: "Nous construisons votre solution avec un code propre et moderne"
         },
         {
           title: "Tests",
-          description: "Validation et assurance qualité"
+          description: "Nous validons chaque détail — vitesse, responsive et qualité"
         },
         {
-          title: "Déploiement",
-          description: "Mise en ligne et formation"
+          title: "Lancement",
+          description: "Nous déployons, remettons les accès et nous assurons que tout est en ordre"
         }
       ]
     },
@@ -466,23 +471,27 @@ export const fr = {
       items: [
         {
           question: "Combien de temps faut-il pour créer un site web ?",
-          answer: "La plupart des projets sont complétés en 3 à 15 jours selon la complexité. Un site web d'entreprise standard prend environ 3–7 jours. Les plateformes plus complexes avec des fonctionnalités sur mesure peuvent prendre 7–15 jours."
+          answer: "La plupart des projets sont complétés en 3 à 15 jours ouvrables selon la complexité. Un site d'entreprise standard prend généralement 3–7 jours. Les plateformes plus complexes avec des fonctionnalités sur mesure peuvent prendre 7–15 jours. Nous vous donnons un calendrier précis avant de commencer."
         },
         {
           question: "Que dois-je fournir pour démarrer ?",
-          answer: "Nous vous guidons à travers tout, mais avoir votre logo, couleurs de marque, contenu clé (textes et images) et quelques sites que vous aimez comme références nous aidera à avancer plus vite."
+          answer: "Nous vous guidons à travers tout le processus. Il est utile d'avoir votre logo, vos couleurs de marque, votre contenu clé (textes et images) et quelques sites que vous aimez comme références — mais nous pouvons travailler avec vous même si vous partez de zéro."
         },
         {
           question: "Offrez-vous de la maintenance après le lancement ?",
-          answer: "Oui. Nous offrons un abonnement mensuel de maintenance qui couvre les mises à jour, sauvegardes, correctifs de sécurité et surveillance des performances pour que votre site reste rapide et sécurisé."
+          answer: "Oui. Nous offrons un plan de maintenance mensuel qui couvre les mises à jour, sauvegardes, correctifs de sécurité et surveillance des performances — pour que votre site reste rapide, sécurisé et toujours à jour."
         },
         {
           question: "Pouvez-vous refaire mon site web existant ?",
-          answer: "Absolument. Nous gérons les refonte complètes et migrations. Que vous souhaitiez un nouveau look ou une reconstruction complète sur une technologie moderne, nous avons ce qu'il faut."
+          answer: "Absolument. Nous gérons les refontes complètes et migrations. Que vous souhaitiez un nouveau look ou une reconstruction totale sur une stack moderne, nous avons l'expertise pour le faire."
         },
         {
           question: "Mon site sera-t-il adapté aux mobiles ?",
-          answer: "Chaque site que nous construisons est entièrement responsive et testé sur mobile, tablette et bureau. La performance mobile est une priorité, pas une réflexion après coup."
+          answer: "Chaque site que nous construisons est entièrement responsive et testé sur mobile, tablette et bureau. La performance mobile est une exigence fondamentale — pas une réflexion après coup."
+        },
+        {
+          question: "Travaillez-vous avec des clients en dehors de Montréal ?",
+          answer: "Oui. Nous travaillons avec des clients partout au Canada et à l'international. Tout peut être géré à distance — consultations, révisions et remises de projet se font en ligne."
         }
       ]
     }

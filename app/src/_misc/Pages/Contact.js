@@ -1,19 +1,21 @@
-import React, { useRef, useState, useEffect } from 'react';
-import emailjs from '@emailjs/browser';
-import { FaInstagram, FaPaperPlane, FaWhatsapp } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaInstagram, FaPaperPlane } from 'react-icons/fa';
 import { useTranslation } from '../../hooks/useTranslation';
 import './Contact.css';
 import { faEnvelope, faPhoneSquareAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Contact = () => {
-  const form = useRef(null);
   const [messageSent, setMessageSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
+    user_phone: '',
     subject: '',
+    project_type: '',
+    budget: '',
+    timeline: '',
     message: ''
   });
   const { t, language } = useTranslation();
@@ -34,32 +36,27 @@ export const Contact = () => {
     }
   };
 
-  // WhatsApp click handler
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent('Hello! I found your website and would like to discuss a project.');
-    window.open(`https://wa.me/15146906138?text=${message}`, '_blank');
-  };
-
-  const sendEmail = (e) => {
+const sendEmail = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    emailjs
-      .sendForm('service_g36nv0r', 'template_ekv1e8r', form.current, 'Gow9sCb56iBjWfWQ5')
-      .then(
-        () => {
-          setMessageSent(true);
-          setFormData({ user_name: '', user_email: '', subject: '', message: '' });
-          setTimeout(() => setMessageSent(false), 5000);
-        },
-        (error) => {
-          console.error('FAILED...', error.text);
-          alert('Failed to send message. Please try again.');
-        }
-      )
-      .finally(() => {
-        setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) throw new Error('Failed to send');
+
+      setMessageSent(true);
+      setFormData({ user_name: '', user_email: '', user_phone: '', subject: '', project_type: '', budget: '', timeline: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Effet pour réinitialiser le formulaire après l'envoi
@@ -106,10 +103,6 @@ export const Contact = () => {
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" aria-hidden="true" />
                   <span>{t('contact.info.location')}</span>
                 </div>
-                <div className="contact-method whatsapp-contact" onClick={handleWhatsAppClick}>
-                  <FaWhatsapp className="contact-icon" />
-                  <span>WhatsApp</span>
-                </div>
               </div>
               
               <p className="social-title">{t('contact.social.title')}</p>
@@ -121,67 +114,147 @@ export const Contact = () => {
               </div>
             </div>
             <div className='contact-right'>
-              <form ref={form} onSubmit={sendEmail} className="contact-form">
-                <div className="form-group">
-                  <input 
-                    type="text" 
-                    name="user_name" 
-                    value={formData.user_name}
-                    onChange={handleInputChange}
-                    placeholder={t('contact.form.name')} 
-                    required 
-                    className="form-input"
-                    aria-label={t('contact.form.name')}
-                  />
+              <form onSubmit={sendEmail} className="contact-form">
+
+                {/* Row 1 : Nom + Email */}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="user_name">{t('contact.form.name')} <span className="form-required">*</span></label>
+                    <input
+                      id="user_name"
+                      type="text"
+                      name="user_name"
+                      value={formData.user_name}
+                      onChange={handleInputChange}
+                      placeholder={language === 'fr' ? 'Jean Tremblay' : 'John Smith'}
+                      required
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="user_email">{t('contact.form.email')} <span className="form-required">*</span></label>
+                    <input
+                      id="user_email"
+                      type="email"
+                      name="user_email"
+                      value={formData.user_email}
+                      onChange={handleInputChange}
+                      placeholder="you@example.com"
+                      required
+                      className="form-input"
+                    />
+                  </div>
                 </div>
-                
-                <div className="form-group">
-                  <input 
-                    type="email" 
-                    name="user_email" 
-                    value={formData.user_email}
-                    onChange={handleInputChange}
-                    placeholder={t('contact.form.email')} 
-                    required 
-                    className="form-input"
-                    aria-label={t('contact.form.email')}
-                  />
+
+                {/* Row 2 : Téléphone + Sujet */}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="user_phone">{t('contact.form.phone')}</label>
+                    <input
+                      id="user_phone"
+                      type="tel"
+                      name="user_phone"
+                      value={formData.user_phone}
+                      onChange={handleInputChange}
+                      placeholder="+1 514-000-0000"
+                      className="form-input"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="subject">{t('contact.form.subject')} <span className="form-required">*</span></label>
+                    <input
+                      id="subject"
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      placeholder={language === 'fr' ? 'Création de site web' : 'Website creation'}
+                      required
+                      className="form-input"
+                    />
+                  </div>
                 </div>
-                
-                <div className="form-group">
-                  <input 
-                    type="text" 
-                    name="subject" 
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder={t('contact.form.subject')} 
-                    required 
-                    className="form-input"
-                    aria-label={t('contact.form.subject')}
-                  />
+
+                {/* Row 3 : Type de projet + Budget */}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="project_type">{t('contact.form.projectType')}</label>
+                    <select
+                      id="project_type"
+                      name="project_type"
+                      value={formData.project_type}
+                      onChange={handleInputChange}
+                      className="form-select"
+                    >
+                      <option value="">{t('contact.form.projectTypePlaceholder')}</option>
+                      <option value={language === 'fr' ? 'Site web' : 'Website'}>{language === 'fr' ? 'Site web' : 'Website'}</option>
+                      <option value={language === 'fr' ? 'Application mobile' : 'Mobile app'}>{language === 'fr' ? 'Application mobile' : 'Mobile app'}</option>
+                      <option value="Design UI/UX">Design UI/UX</option>
+                      <option value={language === 'fr' ? 'Référencement SEO' : 'SEO'}>{language === 'fr' ? 'Référencement SEO' : 'SEO'}</option>
+                      <option value={language === 'fr' ? 'Intégration IA' : 'AI Integration'}>{language === 'fr' ? 'Intégration IA' : 'AI Integration'}</option>
+                      <option value={language === 'fr' ? 'Autre' : 'Other'}>{language === 'fr' ? 'Autre' : 'Other'}</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="budget">{t('contact.form.budget')}</label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleInputChange}
+                      className="form-select"
+                    >
+                      <option value="">{t('contact.form.budgetPlaceholder')}</option>
+                      <option value="< $1 500">{language === 'fr' ? 'Moins de 1 500 $' : 'Under $1,500'}</option>
+                      <option value="$1 500 – $3 000">$1 500 – $3 000</option>
+                      <option value="$3 000 – $6 000">$3 000 – $6 000</option>
+                      <option value="> $6 000">{language === 'fr' ? 'Plus de 6 000 $' : 'Over $6,000'}</option>
+                      <option value={language === 'fr' ? 'À discuter' : 'To be discussed'}>{language === 'fr' ? 'À discuter' : 'To be discussed'}</option>
+                    </select>
+                  </div>
                 </div>
-                
+
+                {/* Row 4 : Délai */}
                 <div className="form-group">
-                  <textarea 
-                    name='message' 
-                    rows="6" 
+                  <label className="form-label" htmlFor="timeline">{t('contact.form.timeline')}</label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleInputChange}
+                    className="form-select"
+                  >
+                    <option value="">{t('contact.form.timelinePlaceholder')}</option>
+                    <option value={language === 'fr' ? 'Dès que possible' : 'As soon as possible'}>{language === 'fr' ? 'Dès que possible' : 'As soon as possible'}</option>
+                    <option value={language === 'fr' ? 'Dans 1 mois' : 'Within 1 month'}>{language === 'fr' ? 'Dans 1 mois' : 'Within 1 month'}</option>
+                    <option value={language === 'fr' ? 'Dans 2–3 mois' : 'Within 2–3 months'}>{language === 'fr' ? 'Dans 2–3 mois' : 'Within 2–3 months'}</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </div>
+
+                {/* Row 5 : Message */}
+                <div className="form-group">
+                  <label className="form-label" htmlFor="message">{t('contact.form.message')} <span className="form-required">*</span></label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder={t('contact.form.message')}
+                    placeholder={language === 'fr' ? 'Décrivez votre projet, vos objectifs et tout détail utile...' : 'Describe your project, goals, and any relevant details...'}
                     className="form-textarea"
-                    aria-label={t('contact.form.message')}
                     required
                   ></textarea>
                 </div>
-                
-                <button 
-                  type="submit" 
-                  className="btn btn-contact" 
+
+                <button
+                  type="submit"
+                  className="btn btn-contact"
                   aria-label={t('contact.form.send')}
                   disabled={isSubmitting}
                 >
                   <FaPaperPlane className="btn-icon" aria-hidden="true" />
-                  <span>{isSubmitting ? 'Sending...' : t('contact.form.send')}</span>
+                  <span>{isSubmitting ? t('contact.form.sending') : t('contact.form.send')}</span>
                 </button>
               </form>
               

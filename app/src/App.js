@@ -13,6 +13,7 @@ import ProjectDetails from './_misc/Components/ProjectDetails';
 import NavigationBar from './_misc/Components/NavigationBar';
 import Footer from './_misc/Components/Footer';
 import Cursor from './_misc/Components/Cursor';
+import CookieBanner from './_misc/Components/CookieBanner';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import AOS from 'aos';
@@ -49,6 +50,15 @@ function App() {
         <div className="App">
           <ScrollToTop />
           <Cursor />
+
+          {/* ── Aurora background global ── */}
+          <div className="hero-aurora" aria-hidden="true">
+            <div className="aurora-orb orb-1" />
+            <div className="aurora-orb orb-2" />
+            <div className="aurora-orb orb-3" />
+            <div className="hero-dot-grid" />
+          </div>
+
           <NavigationBar/>
 
           <div className="main-content">
@@ -66,6 +76,7 @@ function App() {
           </div>
           
           <Footer />
+          <CookieBanner />
         </div>
       </ThemeProvider>
     </LanguageProvider>

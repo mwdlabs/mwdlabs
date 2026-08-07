@@ -5,6 +5,8 @@
 .founder-page {
     min-height: 100vh;
     padding-bottom: 6rem;
+    position: relative;
+    z-index: 1;
 }
 
 /* ── HERO ── */

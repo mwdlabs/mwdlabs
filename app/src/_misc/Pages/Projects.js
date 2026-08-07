@@ -65,8 +65,6 @@ function Projects() {
 
     const getTranslatedType = (type) => projectTypes[type]?.[language] || type;
 
-    const liveCount = projects.filter(p => p.link && normalizeProjectType(p.type) === 'Website').length;
-
     const allFilterTypes = [
         { key: 'all',          label: language === 'fr' ? 'Tout'      : 'All',      icon: <FaThLarge /> },
         { key: 'Website',      label: language === 'fr' ? 'Sites Web' : 'Websites', icon: <FaGlobe /> },
@@ -98,23 +96,6 @@ function Projects() {
                 </div>
                 <div className="projects-bg-text" aria-hidden="true">WORK</div>
 
-                {/* Stats */}
-                <div className="portfolio-stats">
-                    <div className="stat-chip">
-                        <strong>{projects.length}+</strong>
-                        <span>{language === 'fr' ? 'Projets livrés' : 'Projects delivered'}</span>
-                    </div>
-                    <span className="stat-divider" />
-                    <div className="stat-chip">
-                        <strong>{liveCount}</strong>
-                        <span>{language === 'fr' ? 'Sites en ligne' : 'Live websites'}</span>
-                    </div>
-                    <span className="stat-divider" />
-                    <div className="stat-chip">
-                        <strong>5+</strong>
-                        <span>{language === 'fr' ? "Ans d'expérience" : 'Years experience'}</span>
-                    </div>
-                </div>
             </header>
 
             {/* ── Filters — only rendered when multiple categories exist ── */}
@@ -138,14 +119,17 @@ function Projects() {
             <div className="projects-grid">
                 {filteredProjects.map((project, idx) => {
                     const featured = project.featured || isWebsite(project);
-                    return (
-                        <Link
-                            to={`/project/${project.id}`}
-                            key={project.id}
-                            className={`project-card${featured ? ' featured' : ''}`}
-                            data-aos="fade-up"
-                            data-aos-delay={idx < 6 ? idx * 60 : 0}
-                        >
+                    const isHero = filter === 'all' && idx === 0 && featured;
+                    const goesExternal = isWebsite(project) && project.link;
+                    const cardClass = `project-card${featured ? ' featured' : ''}${isHero ? ' hero-project' : ''}`;
+                    const sharedProps = {
+                        key: project.id,
+                        className: cardClass,
+                        'data-aos': 'fade-up',
+                        'data-aos-delay': idx < 6 ? idx * 60 : 0,
+                    };
+                    const cardBody = (
+                        <>
                             {/* Background image */}
                             <img
                                 src={project.image}
@@ -156,6 +140,11 @@ function Projects() {
 
                             {/* Gradient */}
                             <div className="card-gradient" />
+
+                            {/* Watermark number */}
+                            <span className="card-watermark" aria-hidden="true">
+                                {String(idx + 1).padStart(2, '0')}
+                            </span>
 
                             {/* Top row: badges + number */}
                             <div className="card-top">
@@ -180,14 +169,6 @@ function Projects() {
                                 <h3 className="project-title">{project.title}</h3>
                                 <p className="project-description">{project.shortDescription}</p>
 
-                                {project.technologies && (
-                                    <div className="tech-chips">
-                                        {project.technologies.slice(0, 4).map((tech, i) => (
-                                            <span key={i} className="tech-chip">{tech}</span>
-                                        ))}
-                                    </div>
-                                )}
-
                                 <div className="project-actions">
                                     <span className="action-view">
                                         {t('projects.viewProject')}
@@ -195,7 +176,7 @@ function Projects() {
                                             <path d="M5 12h14M12 5l7 7-7 7"/>
                                         </svg>
                                     </span>
-                                    {project.link && (
+                                    {!goesExternal && project.link && (
                                         <a
                                             href={project.link}
                                             target="_blank"
@@ -208,6 +189,23 @@ function Projects() {
                                     )}
                                 </div>
                             </div>
+                        </>
+                    );
+                    return goesExternal ? (
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            {...sharedProps}
+                        >
+                            {cardBody}
+                        </a>
+                    ) : (
+                        <Link
+                            to={`/project/${project.id}`}
+                            {...sharedProps}
+                        >
+                            {cardBody}
                         </Link>
                     );
                 })}
@@ -218,6 +216,16 @@ function Projects() {
                     <p>{language === 'fr' ? 'Aucun projet dans cette catégorie.' : 'No projects in this category.'}</p>
                 </div>
             )}
+
+            {/* ── CTA ── */}
+            <div className="projects-cta" data-aos="fade-up">
+                <p>{language === 'fr' ? 'Vous avez un projet en tête ?' : 'Have a project in mind?'}</p>
+                <Link to="/contact">
+                    <button className="btn btn-primary btn-lg">
+                        {language === 'fr' ? 'Démarrer un projet' : 'Start a project'}
+                    </button>
+                </Link>
+            </div>
         </div>
     );
 }

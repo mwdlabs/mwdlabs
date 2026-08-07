@@ -1,11 +1,12 @@
 .contact-section {
   padding: calc(68px + var(--spacing-xl)) var(--spacing-lg) var(--spacing-xxl);
   text-align: center;
-  background: var(--bg-primary);
   min-height: 100vh;
-  transition: background var(--transition-normal), color var(--transition-normal);
+  transition: color var(--transition-normal);
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 /* ─── Contact hero ────────────────────────────────────────────────────── */
@@ -22,19 +23,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: clamp(5rem, 18vw, 13rem);
+  font-size: clamp(7rem, 22vw, 16rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(220, 38, 38, 0.08);
+  -webkit-text-stroke: 1.5px rgba(220, 38, 38, 0.1);
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
   line-height: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 38, 38, 0.12) 0%,
+    rgba(220, 38, 38, 0.04) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 [data-theme="light"] .contact-hero-bg-text {
-  -webkit-text-stroke-color: rgba(220, 38, 38, 0.05);
+  -webkit-text-stroke-color: rgba(220, 38, 38, 0.07);
 }
 
 .contact-header-inner {
@@ -76,31 +84,33 @@
 }
 
 #contact {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-top: var(--spacing-lg);
+  width: 100%;
 }
 
 .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* Center both sections horizontally */
-  align-items: stretch; /* Make both sections equal height */
   max-width: 1100px;
   width: 100%;
-  padding: var(--spacing-xl) 0; /* Add top and bottom spacing */
-  gap: var(--spacing-xl); /* Space between sections */
+  padding: var(--spacing-xl) 0;
   margin: 0 auto;
   box-sizing: border-box;
 }
 
-.contact-left, .contact-right {
-  flex: 1; /* Equal width for both sections */
+/* The actual flex row that holds left + right panels */
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content within each section */
+  align-items: flex-start; /* left-align all content */
 }
 
 /* ─── Contact left panel ─────────────────────────────────────────────── */
@@ -110,11 +120,8 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-xl); /* Extra top spacing for coordonnées section */
-  margin-bottom: var(--spacing-xl); /* Extra bottom spacing for coordonnées section */
+  align-self: flex-start; /* don't stretch taller than its content */
 }
 
 /* Availability badge */
@@ -160,6 +167,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  width: 100%;
 }
 
 .contact-method {
@@ -188,23 +196,6 @@
   transform: translateY(-1px);
 }
 
-.contact-method.whatsapp-contact {
-  background: linear-gradient(135deg, #25d366, #128c7e);
-  color: white;
-  border-color: #25d366;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-}
-
-.contact-method.whatsapp-contact:hover {
-  background: linear-gradient(135deg, #128c7e, #25d366);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-}
-
-.contact-method.whatsapp-contact .contact-icon {
-  color: white;
-}
 
 .contact-method:hover {
   border-color: var(--primary-color);
@@ -286,37 +277,106 @@
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.contact-right input,
-.contact-right textarea {
+/* ─── Form group ─────────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: var(--spacing-md);
+  gap: 0.45rem;
+}
+
+/* ─── Form row (2 columns) ───────────────────────────────────────────── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* ─── Labels ─────────────────────────────────────────────────────────── */
+.form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.form-required {
+  color: var(--primary-color);
+}
+
+/* ─── Inputs, textarea, select ───────────────────────────────────────── */
+.contact-right input,
+.contact-right textarea,
+.contact-right select {
+  width: 100%;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
-  font-size: 1rem;
-  transition: all var(--transition-normal);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   background: var(--bg-tertiary);
   color: var(--text-primary);
+  -webkit-text-fill-color: var(--text-primary);
   outline: none;
   font-family: inherit;
+  box-sizing: border-box;
+  display: block;
 }
 
 .contact-right input:focus,
-.contact-right textarea:focus {
+.contact-right textarea:focus,
+.contact-right select:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
   background: var(--bg-primary);
 }
 
 .contact-right textarea {
   resize: vertical;
   min-height: 130px;
+  line-height: 1.6;
 }
 
 .contact-right input::placeholder,
 .contact-right textarea::placeholder {
   color: var(--text-muted);
+  -webkit-text-fill-color: var(--text-muted);
+}
+
+/* ─── Autofill override ──────────────────────────────────────────────── */
+.contact-right input:-webkit-autofill,
+.contact-right input:-webkit-autofill:hover,
+.contact-right input:-webkit-autofill:focus,
+.contact-right input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 60px var(--bg-tertiary) inset !important;
+  box-shadow: 0 0 0 60px var(--bg-tertiary) inset !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
+  caret-color: var(--text-primary);
+}
+
+/* ─── Select ─────────────────────────────────────────────────────────── */
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem !important;
+}
+
+.form-select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 /* Submit button */
@@ -325,6 +385,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  width: 100%;
   padding: 0.85rem 2rem;
   border: none;
   background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
@@ -390,28 +451,26 @@ a:focus:not(.social-link) {
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────── */
-/* Mobile first - ensure column layout by default */
+/* Tablet — stack vertically */
 @media (max-width: 992px) {
-  .container {
-    flex-direction: column !important; /* Force column layout on all screens below tablet */
-    align-items: stretch;
+  .row {
+    flex-direction: column;
     gap: var(--spacing-lg);
   }
 
   .contact-left,
   .contact-right {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: none !important;
-    margin: 0 auto;
+    width: 100%;
+    flex: none;
+    align-self: auto;
   }
 
   .contact-left {
-    order: 2; /* Contact info (coordonnées) below form */
+    order: 2;
   }
-  
+
   .contact-right {
-    order: 1; /* Form (where we write info) on top */
+    order: 1;
   }
 }
 
@@ -422,62 +481,46 @@ a:focus:not(.social-link) {
   }
 
   .container {
-    flex-direction: column !important; /* Stack vertically on mobile */
-    align-items: center; /* Center both sections */
-    justify-content: center; /* Center content */
-    gap: var(--spacing-xl); /* Space between sections */
-    padding: var(--spacing-lg) 0; /* Top and bottom spacing */
-    text-align: center;
+    padding: var(--spacing-lg) 0;
   }
 
-  .contact-left { 
-    padding: var(--spacing-xl); 
-    order: 2; /* Contact info (coordonnées) below form */
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: none !important;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
+  .row {
     flex-direction: column;
-    align-items: center;
+    gap: var(--spacing-lg);
   }
-  
-  .contact-right { 
-    order: 1; /* Form (where we write info) on top */
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: none !important;
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .contact-left {
+    order: 2;
+    width: 100%;
+    padding: var(--spacing-lg);
+    align-items: flex-start;
   }
-  
-  .contact-right form { 
-    padding: var(--spacing-lg); 
+
+  .contact-right {
+    order: 1;
+    width: 100%;
+  }
+
+  .contact-right form {
+    padding: var(--spacing-lg);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   }
 
-  /* Touch-friendly social links */
   .social-link {
     width: 52px;
     height: 52px;
     font-size: 1.4rem;
-    margin: 0 4px;
   }
-  
-  /* Better tap targets for contact methods */
+
   .contact-method {
     padding: var(--spacing-md) var(--spacing-lg);
-    margin: var(--spacing-xs) 0;
     min-height: 56px;
   }
-  
-  /* Remove sticky positioning on mobile for better flow */
-  .contact-right {
-    position: static;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -486,18 +529,19 @@ a:focus:not(.social-link) {
     padding: calc(60px + var(--spacing-md)) var(--spacing-sm) var(--spacing-lg);
   }
 
-  .contact-left { 
+  .contact-left {
     padding: var(--spacing-md) var(--spacing-sm);
     margin-top: var(--spacing-lg);
   }
-  
-  .contact-right form { 
-    padding: var(--spacing-md) var(--spacing-sm); 
+
+  .contact-right form {
+    padding: var(--spacing-md) var(--spacing-sm);
     gap: var(--spacing-md);
   }
 
   .contact-right input,
-  .contact-right textarea {
+  .contact-right textarea,
+  .contact-right select {
     font-size: 16px; /* prevents iOS zoom */
     padding: var(--spacing-md);
     border-radius: 12px;
@@ -565,14 +609,16 @@ a:focus:not(.social-link) {
 @media (min-width: 769px) and (max-width: 1024px) {
   .container {
     max-width: 900px;
+  }
+
+  .row {
     gap: var(--spacing-lg);
   }
-  
-  .contact-left,
-  .contact-right {
+
+  .contact-left {
     padding: var(--spacing-lg);
   }
-  
+
   .social-link {
     width: 48px;
     height: 48px;
@@ -680,7 +726,8 @@ a:focus:not(.social-link) {
 /* iOS Safari specific fixes */
 @supports (-webkit-backdrop-filter: none) or (not (backdrop-filter: none)) {
   .contact-right input,
-  .contact-right textarea {
+  .contact-right textarea,
+  .contact-right select {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
@@ -740,11 +787,12 @@ a:focus:not(.social-link) {
 /* Dark mode iOS specific */
 @media (prefers-color-scheme: dark) {
   .contact-right input,
-  .contact-right textarea {
+  .contact-right textarea,
+  .contact-right select {
     -webkit-text-fill-color: var(--text-primary);
     color: var(--text-primary);
   }
-  
+
   .contact-right input::placeholder,
   .contact-right textarea::placeholder {
     -webkit-text-fill-color: var(--text-muted);

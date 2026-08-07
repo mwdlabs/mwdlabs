@@ -10,7 +10,7 @@ function PrivacyPolicy() {
     <div className="privacy-container">
       <div className="page-header">
         <h1>{isFr ? 'Politique de Confidentialité' : 'Privacy Policy'}</h1>
-        <p>{isFr ? 'Dernière mise à jour : mars 2026' : 'Last updated: March 2026'}</p>
+        <p>{isFr ? 'Dernière mise à jour : août 2026' : 'Last updated: August 2026'}</p>
       </div>
 
       <div className="privacy-content">

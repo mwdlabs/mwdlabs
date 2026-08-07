@@ -4,24 +4,21 @@ import { useTranslation } from '../../hooks/useTranslation';
 import {
   FaLaptopCode,
   FaPalette,
-  FaServer,
+  FaMobileAlt,
+  FaRocket,
+  FaSearch,
+  FaTools,
   FaShieldAlt,
   FaChartLine,
   FaSyncAlt,
   FaHeadset,
-  FaCheck,
   FaCode,
-  FaMobileAlt,
-  FaTools,
   FaLock,
-  FaRocket,
-  FaSearch,
-  FaPencilAlt,
   FaCogs,
   FaCheckCircle,
+  FaPencilAlt,
   FaCloudUploadAlt,
   FaChevronDown,
-  FaStar
 } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Services.css';
@@ -29,46 +26,11 @@ import './Services.css';
 function Services() {
   const { t, language } = useTranslation();
   const isFr = language === 'fr';
-  const trustItems = t('services.trust', { returnObjects: true });
-
-  const forfaits = [
-    {
-      titre: t('services.packages.essential.title'),
-      prix: t('services.packages.essential.price'),
-      originalPrix: t('services.packages.essential.originalPrice'),
-      desc: t('services.packages.essential.description'),
-      features: t('services.packages.essential.features', { returnObjects: true }),
-      icon: <FaLaptopCode />,
-      popular: false
-    },
-    {
-      titre: t('services.packages.premium.title'),
-      prix: t('services.packages.premium.price'),
-      originalPrix: t('services.packages.premium.originalPrice'),
-      desc: t('services.packages.premium.description'),
-      features: t('services.packages.premium.features', { returnObjects: true }),
-      icon: <FaPalette />,
-      popular: true
-    },
-    {
-      titre: t('services.packages.enterprise.title'),
-      prix: t('services.packages.enterprise.price'),
-      originalPrix: t('services.packages.enterprise.originalPrice'),
-      desc: t('services.packages.enterprise.description'),
-      features: t('services.packages.enterprise.features', { returnObjects: true }),
-      icon: <FaServer />,
-      popular: false
-    },
-    {
-      titre: t('services.packages.custom.title'),
-      prix: t('services.packages.custom.price'),
-      desc: t('services.packages.custom.description'),
-      features: t('services.packages.custom.features', { returnObjects: true }),
-      icon: <FaCogs />,
-      popular: false,
-      custom: true
-    }
+  const serviceIcons = [
+    <FaLaptopCode />, <FaPalette />, <FaMobileAlt />,
+    <FaRocket />, <FaSearch />, <FaTools />
   ];
+  const serviceItems = t('services.items', { returnObjects: true }) || [];
 
   const subscriptionFeatures = t('services.subscription.features', { returnObjects: true }) || [];
   const processSteps = t('services.process.steps', { returnObjects: true }) || [];
@@ -92,73 +54,35 @@ function Services() {
         <div className="wrapper">
           <div className="page-header">
             <span className="service-eyebrow">
-              {isFr ? '✦ Ce que nous faisons' : '✦ What We Do'}
+              <span className="eyebrow-dollar">$</span> init_services()
             </span>
             <h1>{t('services.title')}</h1>
             <p>{t('services.subtitle')}</p>
           </div>
-          <div className="trust-bar">
-            {trustItems.map((item, i) => (
-              <div key={i} className="trust-item">
-                <FaCheckCircle className="trust-icon" />
-                {item}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── Pricing ──────────────────────────────────────────────── */}
-      <section className="forfaits">
+      {/* ── Services Grid ─────────────────────────────────────────── */}
+      <section className="services-grid-section" id="nos-services">
         <div className="wrapper">
           <h2 className="section-title">{t('services.packages.title')}</h2>
           <p className="section-subtitle">{t('services.packages.subtitle')}</p>
-
-          <div className="forfait-list">
-            {forfaits.map((forfait, idx) => (
+          <div className="services-grid">
+            {serviceItems.map((item, idx) => (
               <motion.div
                 key={idx}
-                className={`forfait-item${forfait.popular ? ' popular' : ''}${forfait.custom ? ' custom-quote' : ''}`}
-                initial={{ opacity: 0, y: 24 }}
+                className="service-card"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1, duration: 0.4 }}
+                transition={{ delay: idx * 0.08, duration: 0.4 }}
+                whileHover={{ y: -4 }}
               >
-                {forfait.popular && (
-                  <div className="popular-badge">
-                    <FaStar className="popular-star" />
-                    {t('services.popular')}
-                  </div>
-                )}
-
-                <div className="forfait-header">
-                  <div className="forfait-icon">{forfait.icon}</div>
-                  <h3 className="forfait-title">{forfait.titre}</h3>
-                  {forfait.originalPrix && (
-                    <div className="forfait-launch-badge">
-                      🏷 {t('services.packages.launchBadge')}
-                    </div>
-                  )}
-                  <div className="forfait-price-wrap">
-                    {forfait.originalPrix && (
-                      <span className="forfait-price-original">{forfait.originalPrix}</span>
-                    )}
-                    <div className="forfait-price">{forfait.prix}</div>
-                  </div>
-                  <p className="forfait-desc">{forfait.desc}</p>
-                </div>
-
-                <ul className="forfait-features">
-                  {Array.isArray(forfait.features) && forfait.features.map((feature, i) => (
-                    <li key={i} className="forfait-feature">
-                      <FaCheck className="feature-check" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Link to="/contact" className="btn-cta">
-                  {t('services.ctaButton')}
-                </Link>
+                <span className="service-num" aria-hidden="true">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <div className="service-card-icon">{serviceIcons[idx]}</div>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </motion.div>
             ))}
           </div>

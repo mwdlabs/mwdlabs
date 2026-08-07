@@ -1,14 +1,89 @@
 .App {
   min-height: 100vh;
   background-color: var(--bg-primary);
-  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.09) 1px, transparent 1px);
-  background-size: 32px 32px;
   color: var(--text-primary);
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
-[data-theme="light"] .App {
-  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.13) 1px, transparent 1px);
+/* ─── Aurora background (global) ─────────────────────────────────── */
+.hero-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #dc2626, transparent 70%);
+  top: -150px;
+  left: -100px;
+  animation: orbFloat1 18s linear infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #991b1b, transparent 70%);
+  top: 30%;
+  right: -80px;
+  animation: orbFloat2 22s linear infinite;
+}
+
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #dc2626, transparent 70%);
+  bottom: 10%;
+  left: 30%;
+  animation: orbFloat3 26s linear infinite;
+}
+
+.hero-dot-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+[data-theme="light"] .aurora-orb { opacity: 0.08; }
+[data-theme="light"] .hero-dot-grid {
+  background-image: radial-gradient(circle, rgba(220, 38, 38, 0.2) 1px, transparent 1px);
+}
+
+@keyframes orbFloat1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(60px, 40px) scale(1.05); }
+  66%  { transform: translate(-30px, 80px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbFloat2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-80px, 60px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes orbFloat3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  40%  { transform: translate(50px, -40px) scale(0.9); }
+  80%  { transform: translate(-40px, 30px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb { animation: none; }
 }
 
 /* Scrollbar personnalisée */
