@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useTheme } from '../../contexts/ThemeContext';
-import { FaInstagram, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaEnvelope, FaPhone } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -127,6 +127,10 @@ const Footer = () => {
           <a href="https://www.instagram.com/mwdlabs/" target="_blank" rel="noopener noreferrer"
             className="footer-social-btn" aria-label="Instagram">
             <FaInstagram />
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61592185799236&locale=fr_CA" target="_blank" rel="noopener noreferrer"
+            className="footer-social-btn" aria-label="Facebook">
+            <FaFacebook />
           </a>
           <a href="mailto:mwdlabs.contact@gmail.com"
             className="footer-social-btn" aria-label="Email">

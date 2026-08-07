@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaInstagram, FaPaperPlane } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaPaperPlane } from 'react-icons/fa';
 import { useTranslation } from '../../hooks/useTranslation';
 import './Contact.css';
 import { faEnvelope, faPhoneSquareAlt, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
@@ -107,9 +107,13 @@ const sendEmail = async (e) => {
               
               <p className="social-title">{t('contact.social.title')}</p>
               <div className='social-icons'>
-                <a href='https://www.instagram.com/mwdlabs/' target="_blank" 
+                <a href='https://www.instagram.com/mwdlabs/' target="_blank"
                    rel="noopener noreferrer" aria-label={t('contact.social.instagram')} className="social-link">
                   <FaInstagram className="social-icon" aria-hidden="true" />
+                </a>
+                <a href='https://www.facebook.com/profile.php?id=61592185799236&locale=fr_CA' target="_blank"
+                   rel="noopener noreferrer" aria-label="Facebook" className="social-link">
+                  <FaFacebook className="social-icon" aria-hidden="true" />
                 </a>
               </div>
             </div>
