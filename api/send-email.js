@@ -23,7 +23,7 @@ module.exports = async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: 'MWD Labs <contact@mwdlabs.ca>',
+      from: 'MWD Labs <onboarding@resend.dev>',
       to: ['mwdlabs.contact@gmail.com'],
       replyTo: user_email,
       subject: `[Contact] ${subject} — ${user_name}`,
