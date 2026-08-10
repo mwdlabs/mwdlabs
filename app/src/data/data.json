@@ -6,7 +6,7 @@
         "type": "Site Web",
         "shortDescription": "Plateforme digitale professionnelle pour agence d'immigration développée avec React.",
         "longDescription": "Solution web complète pour Boretudes, agence spécialisée dans l'accompagnement d'étudiants internationaux. Cette plateforme React intègre une interface moderne et performante, des formulaires de contact sécurisés et une architecture SEO avancée. Le site génère des leads qualifiés et améliore significativement la visibilité digitale de l'entreprise avec un ROI mesurable.",
-        "link": "https://boretudes-pzy9owns9-dioufmouhammad-1502s-projects.vercel.app/",
+        "link": "https://boretudes.vercel.app/",
         "technologies": ["React", "JavaScript", "HTML", "CSS", "Vercel"],
         "featured": true
     },
