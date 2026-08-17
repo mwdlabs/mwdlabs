@@ -55,6 +55,11 @@ export const en = {
     map: {
       title: "Location",
       description: "Based in Montreal, available for local and international opportunities"
+    },
+    calendly: {
+      eyebrow: "✦ Book a Meeting",
+      title: "Schedule a Free Consultation",
+      subtitle: "Choose a time slot that works for you — 30-minute call, no commitment."
     }
   },
 

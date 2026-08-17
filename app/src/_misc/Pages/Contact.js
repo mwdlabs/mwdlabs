@@ -67,6 +67,17 @@ const sendEmail = async (e) => {
     }
   }, [messageSent]);
 
+  // Chargement du script Calendly
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className='contact-section'>
       <div className="contact-hero">
@@ -275,6 +286,22 @@ const sendEmail = async (e) => {
               )}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Calendly inline widget */}
+      <div className="calendly-section">
+        <div className="calendly-header">
+          <span className="contact-eyebrow">{t('contact.calendly.eyebrow')}</span>
+          <h2 className="calendly-title">{t('contact.calendly.title')}</h2>
+          <p className="calendly-subtitle">{t('contact.calendly.subtitle')}</p>
+        </div>
+        <div className="calendly-widget-wrapper">
+          <div
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/mwdlabs-contact/30min?primary_color=ff1a00"
+            style={{ minWidth: '320px', height: '700px' }}
+          />
         </div>
       </div>
     </div>

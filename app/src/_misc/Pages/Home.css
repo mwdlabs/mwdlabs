@@ -1,3 +1,63 @@
+/* ─── Calendly section ───────────────────────────────────────────────── */
+.home-calendly-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: var(--spacing-xxl) auto;
+  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+.home-calendly-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.home-calendly-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.home-calendly-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.home-calendly-widget-wrapper {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .home-calendly-section {
+    padding: 0 var(--spacing-md);
+    margin: var(--spacing-xl) auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-calendly-section {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .home-calendly-widget-wrapper .calendly-inline-widget {
+    height: 750px !important;
+  }
+}
+
 /* ─── Base ─────────────────────────────────────────────────────────── */
 body {
   background: var(--bg-primary);

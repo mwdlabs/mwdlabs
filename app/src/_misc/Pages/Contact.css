@@ -752,6 +752,66 @@ a:focus:not(.social-link) {
   }
 }
 
+/* ─── Calendly section ───────────────────────────────────────────────── */
+.calendly-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: var(--spacing-xxl) auto 0;
+  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+.calendly-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.calendly-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.calendly-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.calendly-widget-wrapper {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .calendly-section {
+    padding: 0 var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .calendly-section {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .calendly-widget-wrapper .calendly-inline-widget {
+    height: 750px !important;
+  }
+}
+
 /* iOS Safari specific fixes */
 @supports (-webkit-backdrop-filter: none) or (not (backdrop-filter: none)) {
   .contact-right input,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FaCode, FaPalette, FaMobileAlt, FaRobot, FaSearch, FaTools
@@ -39,6 +39,16 @@ const HERO_BARS = [35, 55, 40, 78, 52, 68, 88, 47];
 
 function Home() {
     const { t, language } = useTranslation();
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
 
     return (
         <>
@@ -362,14 +372,17 @@ function Home() {
                         ? 'Consultation gratuite · Réponse en 24h · Sans engagement'
                         : 'Free consultation · 24h response · No commitment'}
                 </p>
-                <Link to="/contact" className="cta-banner-btn">
+                <button
+                    className="cta-banner-btn"
+                    onClick={() => document.getElementById('book-meeting').scrollIntoView({ behavior: 'smooth' })}
+                >
                     {language === 'fr' ? 'Réserver un appel gratuit' : 'Book a free call'}
                     <span className="cta-banner-arrow">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </span>
-                </Link>
+                </button>
             </div>
         </div>
 
@@ -394,6 +407,33 @@ function Home() {
                         </div>
                     </div>
                 ))}
+            </div>
+        </div>
+
+        {/* ── Calendly ── */}
+        <div id="book-meeting" className="home-calendly-section" data-aos="fade-up">
+            <div className="home-calendly-header">
+                <span className="section-eyebrow">
+                    ✦ {language === 'fr' ? 'PRENDRE RENDEZ-VOUS' : 'BOOK A MEETING'}
+                </span>
+                <h2 className="home-calendly-title">
+                    {language === 'fr'
+                        ? <>Planifier une <span className="text-accent">consultation gratuite</span></>
+                        : <>Schedule a <span className="text-accent">free consultation</span></>
+                    }
+                </h2>
+                <p className="home-calendly-subtitle">
+                    {language === 'fr'
+                        ? 'Choisissez un créneau qui vous convient — appel de 30 minutes, sans engagement.'
+                        : 'Choose a time slot that works for you — 30-minute call, no commitment.'}
+                </p>
+            </div>
+            <div className="home-calendly-widget-wrapper">
+                <div
+                    className="calendly-inline-widget"
+                    data-url="https://calendly.com/mwdlabs-contact/30min?primary_color=ff1a00"
+                    style={{ minWidth: '320px', height: '700px' }}
+                />
             </div>
         </div>
         </>

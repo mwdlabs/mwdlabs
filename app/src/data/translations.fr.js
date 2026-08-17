@@ -55,6 +55,11 @@ export const fr = {
     map: {
       title: "Localisation",
       description: "Basé à Montréal, disponible pour des opportunités locales et internationales"
+    },
+    calendly: {
+      eyebrow: "✦ Prendre Rendez-vous",
+      title: "Planifier une Consultation Gratuite",
+      subtitle: "Choisissez un créneau qui vous convient — appel de 30 minutes, sans engagement."
     }
   },
 
