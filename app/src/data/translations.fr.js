@@ -197,11 +197,6 @@ export const fr = {
           name: "Équipe Boretudes",
           role: "Agence d'Immigration",
           text: "MWD Labs a livré un site web professionnel et optimisé SEO qui a considérablement amélioré notre visibilité en ligne et nous a aidés à attirer plus d'étudiants internationaux. Hautement recommandé."
-        },
-        {
-          name: "Cyclo Action",
-          role: "Club Cycliste Communautaire, Saint-Jean-sur-Richelieu",
-          text: "Notre nouvelle plateforme a facilité l'inscription des membres aux événements et a renforcé les liens au sein de notre communauté. L'équipe était réactive, professionnelle et a livré exactement ce dont nous avions besoin."
         }
       ]
     }
